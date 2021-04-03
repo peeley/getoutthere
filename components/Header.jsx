@@ -6,29 +6,35 @@ export default function Header() {
         <>
             <Head>
                 <title>Get Out There</title>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" type="image/x-icon" href="https://assets.squarespace.com/universal/default-favicon.ico"/>
             </Head>
-            <h2>
-                <Link href="/shop">
-                <a>Shop</a>
-                </Link>
-            </h2>
-            <h2>
-                <Link href="/our-story">
-                <a>Our Story</a>
-                </Link>
-            </h2>
+            <div class="flex flex-row justify-between m-16 text-xl">
+                <div class="flex flex-row">
+                    <h2 class="pr-7">
+                        <Link href="/shop">
+                        <a>Shop</a>
+                        </Link>
+                    </h2>
+                    <h2>
+                        <Link href="/our-story">
+                        <a>Our Story</a>
+                        </Link>
+                    </h2>
+                </div>
 
-            <h1><Link href="/"><a>Get Out There</a></Link></h1>
+                <h1 class="justify-self-center text-4xl"><Link href="/"><a>Get Out There</a></Link></h1>
 
-            <h2>
-                <Link href="https://www.instagram.com/getouthere907">
-                <a>Insta</a>
-                </Link>
-            </h2>
-            <h1>Cart</h1>
+                <div class="flex flex-row">
+                    <h2 class="mr-7">
+                        <Link href="https://www.instagram.com/getouthere907">
+                        <a>Insta</a>
+                        </Link>
+                    </h2>
+                    <h1>Cart</h1>
+                </div>
+            </div>
         </>
     );
 }
