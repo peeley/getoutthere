@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <Header/>
       <div class="my-12 mx-auto text-center w-2/5">
-        <p class="pt-10 text-3xl break-words">
+        <p class="pt-10 text-3xl leading-relaxed">
           <b>
           Giving all Alaskans an opportunity to grow a passion for
           outdoor fitness through kindness and transparency.

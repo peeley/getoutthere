@@ -10,21 +10,21 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" type="image/x-icon" href="https://assets.squarespace.com/universal/default-favicon.ico"/>
             </Head>
-            <div class="flex flex-row justify-between m-16 text-xl">
+            <div class="flex flex-row justify-between m-16 text-2xl">
                 <div class="flex flex-row">
                     <h2 class="pr-7">
                         <Link href="/shop">
                         <a>Shop</a>
                         </Link>
                     </h2>
-                    <h2>
+                    <h2 class="pl-7">
                         <Link href="/our-story">
                         <a>Our Story</a>
                         </Link>
                     </h2>
                 </div>
 
-                <h1 class="justify-self-center text-4xl"><Link href="/"><a>Get Out There</a></Link></h1>
+                <h1 class="justify-self-center text-5xl mr-20 font-bold"><Link href="/"><a>Get Out There</a></Link></h1>
 
                 <div class="flex flex-row">
                     <h2 class="mr-7">
