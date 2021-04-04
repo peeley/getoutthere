@@ -1,15 +1,21 @@
 import { promises as fs } from 'fs'
 import Image from 'next/image'
+import Link from 'next/link'
 import path from 'path'
 
 import Header from '../../components/Header.jsx'
 
 export default function ShopIndex({ products }){
     const productList = products.map( product =>
-        <div key={product.sku}>
-            <Image src={product.imagePath} width="410" height="410"/>
-            <p> {product.title}  - ${product.price} </p>
-        </div>
+        <Link href={`/shop/${product.sku}`} key={product.sku}>
+            <a>
+                <Image src={product.imagePath} width="410" height="410"/>
+                <div class="text-center mt-7 pb-7 text-2xl">
+                    <p class="font-bold"> {product.title}</p>
+                <p class="text-center"> ${product.price.toFixed(2)}</p>
+                </div>
+            </a>
+        </Link>
     );
 
     return(
