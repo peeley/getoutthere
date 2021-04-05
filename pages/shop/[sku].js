@@ -2,8 +2,11 @@ import { promises as fs } from 'fs'
 import Header from '../../components/Header'
 import Image from 'next/image'
 import path from 'path'
+import { useState } from 'react'
 
 export default function Product( props ) {
+    const [quantity, setQuantity] = useState(1);
+
     return (
         <>
             <Header />
@@ -17,18 +20,23 @@ export default function Product( props ) {
                         <p class="text-2xl">${props.price.toFixed(2)}</p>
                     </div>
                     <p class="leading-relaxed text-xl">{props.description}</p>
-                    <div class="my-5 py-5 grid grid-cols-2">
-                        { props.multipurchase ?
-                        <div>
-                            <p class="text-xl font-bold self-start mb-1">Quantity</p>
-                            <input type="number" value="1" class="p-4 w-1/2 border"/>
-                        </div> : null
-                        }
-                        <button class="text-xl font-bold bg-blue-600 text-white rounded-full mt-3 px-4 justify-self-start">
+                    { props.multipurchase ?
+                        <div class="my-5 py-5 grid grid-cols-2">
+                            <div>
+                                <p class="text-xl font-bold self-start mb-1">Quantity</p>
+                                <input type="number" value={quantity} min="1" onChange={ e => setQuantity(e.target.value) } class="p-4 w-1/2 border"/>
+                            </div>
+                            <button class="text-xl font-bold bg-blue-600 text-white rounded-full mt-3 px-4 justify-self-start">
+                                Add To Cart
+                            </button>
+                        </div>
+                      :
+                        <button class="text-xl font-bold bg-blue-600 text-white rounded-full my-5 p-5">
                             Add To Cart
                         </button>
+
+                    }
                     </div>
-                </div>
             </div>
         </>
     )
