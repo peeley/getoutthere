@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Header() {
@@ -29,7 +30,9 @@ export default function Header() {
                 <div class="flex flex-row">
                     <h2 class="mr-7">
                         <Link href="https://www.instagram.com/getouthere907">
-                        <a>Insta</a>
+                        <a>
+                        <Image class="content-center" src="/insta-logo.svg" height="25" width="25"/>
+                        </a>
                         </Link>
                     </h2>
                     <h1>Cart</h1>
