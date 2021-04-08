@@ -28,14 +28,20 @@ export default function Header() {
                 <h1 class="justify-self-center text-5xl mr-20 font-bold"><Link href="/"><a>Get Out There</a></Link></h1>
 
                 <div class="flex flex-row">
-                    <h2 class="mr-7">
+                    <div class="mr-7">
                         <Link href="https://www.instagram.com/getouthere907">
-                        <a>
-                        <Image class="content-center" src="/insta-logo.svg" height="25" width="25"/>
-                        </a>
+                            <a>
+                                <Image class="content-center" src="/insta-logo.svg" height="25" width="25"/>
+                            </a>
                         </Link>
-                    </h2>
-                    <h1>Cart</h1>
+                    </div>
+                    <div>
+                        <Link href="/cart">
+                            <a>
+                                <Image src="/cart-icon.svg" height="30" width="30"/>
+                            </a>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

@@ -1,3 +1,4 @@
+import { addItemToCart } from '../cart'
 import { promises as fs } from 'fs'
 import Header from '../../components/Header'
 import Image from 'next/image'
@@ -26,12 +27,12 @@ export default function Product( props ) {
                                 <p class="text-xl font-bold self-start mb-1">Quantity</p>
                                 <input type="number" value={quantity} min="1" onChange={ e => setQuantity(e.target.value) } class="p-4 w-1/2 border"/>
                             </div>
-                            <button class="text-xl font-bold bg-blue-600 text-white rounded-full mt-3 px-4 justify-self-start">
+                            <button class="text-xl font-bold bg-blue-600 text-white rounded-full mt-3 px-4 justify-self-start" onClick={() => addItemToCart({sku: props.sku, title: props.title, price: props.price, quantity})}>
                                 Add To Cart
                             </button>
                         </div>
                       :
-                        <button class="text-xl font-bold bg-blue-600 text-white rounded-full my-5 p-5">
+                        <button class="text-xl font-bold bg-blue-600 text-white rounded-full my-5 p-5" onClick={() => addItemToCart(props)}>
                             Add To Cart
                         </button>
 
@@ -73,6 +74,7 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
+            sku: productJSON.sku,
             description: productJSON.description,
             imagePath: productJSON.imagePath,
             multipurchase: productJSON.multipurchase,
