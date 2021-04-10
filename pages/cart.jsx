@@ -1,9 +1,12 @@
-import { parse } from 'cookie'
+import { useContext } from 'react'
+import { Context } from '../lib/State'
 import Header from '../components/Header'
 
-export default function Cart({ cartItems }) {
-    const cartListElements = Object.values(cartItems).map( props => {
-        const product = JSON.parse(props);
+export default function Cart() {
+
+    const [state, dispatch] = useContext(Context);
+
+    const cartListElements = Object.values(state).map( product => {
         return (
             <li>
                 {product.title} - ${product.price.toFixed(2)}
@@ -21,16 +24,10 @@ export default function Cart({ cartItems }) {
     );
 }
 
-export async function getServerSideProps(context){
-    const cookie = context.req.headers.cookie;
-    const cookieObject = parse(cookie);
-
-    return { props: {
-        cartItems: cookieObject
-    }};
+export function addItemToCart(props, loadingCallback){
+    Cookies.set(props.sku, props);
 }
 
-export function addItemToCart(props){
-    Cookies.set(props.sku, props)
-    console.log(Cookies.get());
+export function removeItemFromCart(itemSku){
+    Cookies.remove(itemSku);
 }
