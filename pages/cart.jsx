@@ -6,19 +6,19 @@ export default function Cart() {
 
     const [state, dispatch] = useContext(Context);
 
-    const cartListElements = Object.values(state).map( product => {
-        return (
-            <li>
-                {product.title} - ${product.price.toFixed(2)}
-            </li>
-        );
-    });
-
     return (
         <div>
           <Header />
           <ul>
-            {cartListElements}
+            { state.map( (product, index) => {
+                    console.log('listing item at index', index)
+                    return(
+                        <li key={index}>
+                            {product.title} - ${product.price.toFixed(2)}
+                            <button onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>X</button>
+                        </li>
+                    );
+              }) }
           </ul>
         </div>
     );

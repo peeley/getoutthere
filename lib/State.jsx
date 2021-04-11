@@ -9,8 +9,7 @@ function cartReducer(state = initialState, action){
             return [...state, action.product];
         case 'REMOVE_ITEM':
             console.log('removing item at idx:', action.index);
-            state.splice(index, 1)
-            return state;
+            return state.filter((_, idx) => idx !== action.index);
         default:
             console.log('weird type');
             return state;
