@@ -1,29 +1,35 @@
+import Cookies from 'js-cookie'
 import { createContext, useReducer } from 'react'
 
-const initialState = [];
+export const Context = createContext(getInitialStateFromCookies());
 
-function cartReducer(state = initialState, action){
+function cartReducer(state, action){
+    let newState = null;
     switch(action.type){
         case 'ADD_ITEM':
-            console.log('adding item:', action.product);
-            return [...state, action.product];
+            newState = [...state, action.product];
+            break;
         case 'REMOVE_ITEM':
-            console.log('removing item at idx:', action.index);
-            return state.filter((_, idx) => idx !== action.index);
+            newState = state.filter((_, idx) => idx !== action.index);
+            break;
         default:
-            console.log('weird type');
             return state;
-  }
+    }
+    Cookies.set('cart', newState);
+    return newState
 }
 
-export const Context = createContext(initialState);
-
 export function Store({children}){
-  const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [state, dispatch] = useReducer(cartReducer, getInitialStateFromCookies());
 
   return (
       <Context.Provider value={[state, dispatch]}>
         {children}
       </Context.Provider>
   )
+}
+
+function getInitialStateFromCookies(){
+    const state = Cookies.get('cart');
+    return state ? JSON.parse(state) : [];
 }
