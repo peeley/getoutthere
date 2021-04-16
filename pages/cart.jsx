@@ -26,11 +26,3 @@ export default function Cart() {
         </div>
     );
 }
-
-export function addItemToCart(props, loadingCallback){
-    Cookies.set(props.sku, props);
-}
-
-export function removeItemFromCart(itemSku){
-    Cookies.remove(itemSku);
-}
