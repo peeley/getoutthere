@@ -61,7 +61,7 @@ export async function getStaticPaths() {
         };
     });
 
-    return { paths: await Promise.all(paths), fallback: true };
+    return { paths: await Promise.all(paths), fallback: false };
 }
 
 export async function getStaticProps({ params }) {
