@@ -10,9 +10,9 @@ export default function ShopIndex({ products }){
         <Link href={`/shop/${product.sku}`} key={product.sku}>
             <a>
                 <Image src={product.imagePath} width="410" height="410"/>
-                <div class="text-center mt-7 pb-7 text-2xl">
-                    <p class="font-bold"> {product.title}</p>
-                <p class="text-center"> ${product.price.toFixed(2)}</p>
+                <div className="text-center mt-7 pb-7 text-2xl">
+                    <p className="font-bold"> {product.title}</p>
+                <p className="text-center"> ${product.price.toFixed(2)}</p>
                 </div>
             </a>
         </Link>
@@ -21,10 +21,10 @@ export default function ShopIndex({ products }){
     return(
         <>
             <Header/>
-            <div class="mb-16 mt-20 mx-16">
-                <h1 class="font-bold text-center text-6xl mb-16 mt-20 mx-16">Shop</h1>
+            <div className="mb-16 mt-20 mx-16">
+                <h1 className="font-bold text-center text-6xl mb-16 mt-20 mx-16">Shop</h1>
                 <hr/>
-                <ul class="mt-16 grid grid-cols-3 gap-5">
+                <ul className="mt-16 grid grid-cols-3 gap-5">
                     { productList }
                 </ul>
             </div>

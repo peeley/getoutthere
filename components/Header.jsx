@@ -1,8 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image'
 import Link from 'next/link'
+import { useContext } from 'react';
+import { Context } from '../lib/State'
 
 export default function Header() {
+
+    const [state, dispatch] = useContext(Context);
+
     return (
         <>
             <Head>
@@ -11,27 +16,27 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" type="image/x-icon" href="https://assets.squarespace.com/universal/default-favicon.ico"/>
             </Head>
-            <div class="flex flex-row justify-between m-16 text-2xl">
-                <div class="flex flex-row">
-                    <h2 class="pr-7">
+            <div className="flex flex-row justify-between m-16 text-2xl">
+                <div className="flex flex-row">
+                    <h2 className="pr-7">
                         <Link href="/shop">
                         <a>Shop</a>
                         </Link>
                     </h2>
-                    <h2 class="pl-7">
+                    <h2 className="pl-7">
                         <Link href="/our-story">
                         <a>Our Story</a>
                         </Link>
                     </h2>
                 </div>
 
-                <h1 class="justify-self-center text-5xl mr-20 font-bold"><Link href="/"><a>Get Out There</a></Link></h1>
+                <h1 className="justify-self-center text-5xl mr-20 font-bold"><Link href="/"><a>Get Out There</a></Link></h1>
 
-                <div class="flex flex-row">
-                    <div class="mr-7">
+                <div className="flex flex-row">
+                    <div className="mr-7">
                         <Link href="https://www.instagram.com/getouthere907">
                             <a>
-                                <Image class="content-center" src="/insta-logo.svg" height="25" width="25"/>
+                                <Image className="content-center" src="/insta-logo.svg" height="25" width="25"/>
                             </a>
                         </Link>
                     </div>
@@ -41,6 +46,7 @@ export default function Header() {
                                 <Image src="/cart-icon.svg" height="30" width="30"/>
                             </a>
                         </Link>
+                        { state.length > 0 ? <span>{ state.length }</span> : null }
                     </div>
                 </div>
             </div>
