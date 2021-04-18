@@ -19,33 +19,26 @@ export default function Product( props ) {
     return (
         <>
             <Header />
-            <div class="grid grid-cols-2 mt-20 mx-16 justify-items-center">
+            <div className="grid grid-cols-2 mt-20 mx-16 justify-items-center">
                 <div>
                     <Image src={props.imagePath} width="410" height="410"/>
                 </div>
-                <div class="justify-self-start w-2/3">
-                    <div class="font-bold mb-10">
-                        <p class="mb-7 text-3xl">{props.title}</p>
-                        <p class="text-2xl">${props.price.toFixed(2)}</p>
+                <div className="justify-self-start w-2/3">
+                    <div className="font-bold mb-10">
+                        <p className="mb-7 text-3xl">{props.title}</p>
+                        <p className="text-2xl">${props.price.toFixed(2)}</p>
                     </div>
-                    <p class="leading-relaxed text-xl">{props.description}</p>
-                    { props.multipurchase ?
-                        <div class="my-5 py-5 grid grid-cols-2">
-                            <div>
-                                <p class="text-xl font-bold self-start mb-1">Quantity</p>
-                                <input type="number" value={quantity} min="1" onChange={ e => setQuantity(e.target.value) } class="p-4 w-1/2 border"/>
-                            </div>
-                          <button class="text-xl font-bold bg-blue-600 text-white rounded-full mt-3 px-4 justify-self-start" onClick={() => addItem({...props, ...{ quantity }})}>
-                                Add To Cart
-                            </button>
+                    <p className="leading-relaxed text-xl">{props.description}</p>
+                    <div className="my-5 py-5 grid grid-cols-2">
+                        <div>
+                            <p className="text-xl font-bold self-start mb-1">Quantity</p>
+                            <input type="number" value={quantity} min="1" onChange={ e => setQuantity(e.target.value) } className="p-4 w-1/2 border"/>
                         </div>
-                      :
-                        <button class="text-xl font-bold bg-blue-600 text-white rounded-full my-5 p-5" onClick={() => addItem(props)}>
+                        <button className="text-xl font-bold bg-blue-600 text-white rounded-full mt-3 px-4 justify-self-start" onClick={() => addItem({...props, ...{ quantity }})}>
                             Add To Cart
                         </button>
-
-                    }
                     </div>
+                </div>
             </div>
         </>
     )
@@ -85,7 +78,6 @@ export async function getStaticProps({ params }) {
             sku: productJSON.sku,
             description: productJSON.description,
             imagePath: productJSON.imagePath,
-            multipurchase: productJSON.multipurchase,
             title: productJSON.title,
             price: productJSON.price,
         }

@@ -1,8 +1,7 @@
 {
     "sku": "month-plan",
     "title": "1 Month Training Plan",
-    "imagePath": "/products/month-plan.png",
+    "imagePath": "/products/month-plan/png",
     "price": 50.00,
-    "description": "Whether you need guidance or motivation to kickstart your fitness, we got you covered.  With our 2 month training plan our professionals will meet with you virtually to establish your “smart” goals as well as develop some strategies to ensure you enjoy the fitness you’re pursuing. You’ll find sweat, smiles, and a whole lot of miles in our two month training plan.",
-    "multipurchase": true
+    "description": "Whether you need guidance or motivation to kickstart your fitness, we got you covered.  With our 2 month training plan our professionals will meet with you virtually to establish your “smart” goals as well as develop some strategies to ensure you enjoy the fitness you’re pursuing. You’ll find sweat, smiles, and a whole lot of miles in our two month training plan."
 }
