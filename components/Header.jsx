@@ -6,7 +6,12 @@ import { Context } from '../lib/State'
 
 export default function Header() {
 
-    const [state, dispatch] = useContext(Context);
+    const [cart, ] = useContext(Context);
+
+    let totalItems = 0;
+    const getTotalCartItems = cart.forEach((item) => {
+        totalItems += item.quantity;
+    });
 
     return (
         <>
@@ -46,7 +51,7 @@ export default function Header() {
                                 <Image src="/cart-icon.svg" height="30" width="30"/>
                             </a>
                         </Link>
-                        { state.length > 0 ? <span>{ state.length }</span> : null }
+                        { totalItems > 0 ? <span>{ totalItems }</span> : null }
                     </div>
                 </div>
             </div>

@@ -7,6 +7,16 @@ function cartReducer(state, action){
     let newState = null;
     switch(action.type){
         case 'ADD_ITEM':
+            // edge case: user already has same item in cart
+            // just increase quantity of item by one
+            for(let idx = 0; idx < state.length; idx++) {
+                if (state[idx].sku === action.product.sku) {
+                    newState = [...state];
+                    newState[idx].quantity += 1;
+                    Cookies.set('cart', newState);
+                    return newState;
+                }
+            }
             newState = [...state, action.product];
             break;
         case 'REMOVE_ITEM':
