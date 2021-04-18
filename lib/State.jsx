@@ -8,7 +8,7 @@ function cartReducer(state, action){
     switch(action.type){
         case 'ADD_ITEM':
             // edge case: user already has same item in cart
-            // just increase quantity of item by one
+            // in this case, just increase quantity of that item by one
             for(let idx = 0; idx < state.length; idx++) {
                 if (state[idx].sku === action.product.sku) {
                     newState = [...state];
