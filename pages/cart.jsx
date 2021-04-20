@@ -10,16 +10,32 @@ export default function Cart() {
     const renderCartItems = (items) =>
         items.map( (product, index) => {
             return(
-                <li key={index}>
-                    {product.title} - ${product.price.toFixed(2)}
-                    <button onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>X</button>
-                </li>
+                <tr key={index}>
+                    <td>{product.title}</td>
+                    <td>{product.quantity}</td>
+                    <td>${product.price.toFixed(2)}</td>
+                    <td>
+                        <button className="bg-red-500 p-3" onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>X</button>
+                    </td>
+                </tr>
             );
         });
 
     const cartItems = state.length > 0
     ? <>
-        { renderCartItems(state) }
+        <table className="border border-collapse table-fixed w-full">
+          <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            { renderCartItems(state) }
+          </tbody>
+        </table>
         <div className="flex flex-row justify-end">
             <button className="text-xl font-bold bg-blue-600 text-white rounded-full my-5 p-5" onClick={submitToCheckout}>Checkout</button>
         </div>
