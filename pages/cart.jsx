@@ -12,8 +12,11 @@ export default function Cart() {
             return(
                 <tr key={index}>
                     <td>{product.title}</td>
-                    <td>{product.quantity}</td>
-                    <td>${product.price.toFixed(2)}</td>
+                    <td>
+                      <input className="border" min="1" type="number" value={product.quantity}
+                             onChange={(e) => dispatch({ type: 'CHANGE_QUANTITY', index, newQuantity: parseInt(e.target.value) })} />
+                    </td>
+                    <td>${product.price.toFixed(2) * product.quantity}</td>
                     <td>
                         <button className="bg-red-500 p-3" onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>X</button>
                     </td>

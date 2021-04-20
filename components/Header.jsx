@@ -51,7 +51,7 @@ export default function Header() {
                                 <Image src="/cart-icon.svg" height="30" width="30"/>
                             </a>
                         </Link>
-                        { totalItems > 0 ? <span>{ totalItems }</span> : null }
+                        <span className="align-text-top fixed text-base mt-5">{ totalItems > 0 ? totalItems : null }</span>
                     </div>
                 </div>
             </div>

@@ -22,6 +22,10 @@ function cartReducer(state, action){
         case 'REMOVE_ITEM':
             newState = state.filter((_, idx) => idx !== action.index);
             break;
+        case 'CHANGE_QUANTITY':
+            newState = [...state];
+            newState[action.index].quantity = action.newQuantity;
+            break;
         default:
             return state;
     }
