@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Context } from '../lib/State'
 import Header from '../components/Header'
 
@@ -9,37 +10,41 @@ export default function Cart() {
 
     const renderCartItems = (items) =>
         items.map( (product, index) => {
+            // FIXME table might not be best for mobile view
             return(
-                <tr key={index}>
-                    <td>{product.title}</td>
-                    <td>
-                      <input className="border" min="1" type="number" value={product.quantity}
+                <tr className="border-t" key={index}>
+                    <td className="flex flex-row justify-start ml-5 items-center">
+                        <button className="hover:text-gray-900 hover:bg-gray-300 rounded text-gray-500 bg-gray-200 py-2 px-4 mx-5 my-10 align-middle" onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>X</button>
+                      <Image src={product.imagePath} width="100" height="100"/>
+                      <span className="ml-5 font-bold text-2xl flex-grow content-center">{product.title}</span>
+                    </td>
+                    <td className="text-right">
+                      <input className="border w-1/6 text-center" min="1" type="number" value={product.quantity}
                              onChange={(e) => dispatch({ type: 'CHANGE_QUANTITY', index, newQuantity: parseInt(e.target.value) })} />
                     </td>
-                    <td>${product.price.toFixed(2) * product.quantity}</td>
-                    <td>
-                        <button className="bg-red-500 p-3" onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>X</button>
-                    </td>
+                    <td className="font-bold text-2xl text-center">${product.price.toFixed(2) * product.quantity}</td>
                 </tr>
             );
         });
 
+    let subtotal = state.reduce( (sum, item) => sum + (item.price * item.quantity), 0 );
+
     const cartItems = state.length > 0
     ? <>
-        <table className="border border-collapse table-fixed w-full">
+        <table className="table-fixed w-full">
           <thead>
             <tr>
-                <th>Item</th>
-                <th>Quantity</th>
+                <th className="text-center pl-16">Item</th>
+                <th className="text-right">Quantity</th>
                 <th>Price</th>
-                <th></th>
             </tr>
           </thead>
           <tbody>
             { renderCartItems(state) }
           </tbody>
         </table>
-        <div className="flex flex-row justify-end">
+        <div className="my-10 text-right">
+          <span className="block font-bold text-2xl">Subtotal: ${subtotal.toFixed(2)}</span>
             <button className="text-xl font-bold bg-blue-600 text-white rounded-full my-5 p-5" onClick={submitToCheckout}>Checkout</button>
         </div>
       </>
