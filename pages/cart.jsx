@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Context } from '../lib/State'
 import Header from '../components/Header'
+import { loadStripe } from '@stripe/stripe-js'
 
 export default function Cart() {
 
@@ -28,6 +29,24 @@ export default function Cart() {
         });
 
     let subtotal = state.reduce( (sum, item) => sum + (item.price * item.quantity), 0 );
+
+    const submitToCheckout = async (event) => {
+        event.preventDefault();
+
+        const checkoutSession = await fetch(
+            '/api/checkout_sessions',
+            { method: 'POST',
+              body: JSON.stringify({ items: state}) }
+        );
+
+        const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+        const { error } = await stripe.redirectToCheckout({
+            sessionId: checkoutSession.id
+        });
+
+        alert(error.message);
+    }
 
     const cartItems = state.length > 0
     ? <>
@@ -60,8 +79,3 @@ export default function Cart() {
         </div>
     );
 }
-
-function submitToCheckout() {
-    console.log('going to checkout!');
-}
-
