@@ -33,13 +33,17 @@ export default function Cart() {
     const submitToCheckout = async (event) => {
         event.preventDefault();
 
-        const checkoutSession = await fetch(
+        const checkoutResponse = await fetch(
             '/api/checkout_sessions',
             { method: 'POST',
-              body: JSON.stringify({ items: state}) }
+              body: JSON.stringify({
+                items: state,
+              })}
         );
 
         const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+        const checkoutSession = await checkoutResponse.json();
 
         const { error } = await stripe.redirectToCheckout({
             sessionId: checkoutSession.id
