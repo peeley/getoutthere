@@ -1,13 +1,10 @@
-import Header from '../components/Header.jsx'
-
 export default function OurStory() {
     return (
         <>
-          <Header/>
-          <div className="w-2/3 m-auto">
-            <div className="py-24 align-middle">
-              <h1 className="pb-14 font-bold text-5xl">Our Mission</h1>
-              <div className="text-2xl leading-relaxed">
+          <div className="w-3/4 sm:w-2/3 m-auto">
+            <div className="py-10 sm:py-24 align-middle">
+              <h1 className="pb-14 font-bold text-2xl sm:text-5xl">Our Mission</h1>
+              <div className="text-md sm:text-2xl leading-relaxed">
                 <p>
                 Our mission at Get Out There is to give all Alaskans an opportunity
                 to grow a passion for outdoor fitness through kindness and
@@ -23,8 +20,8 @@ export default function OurStory() {
               </div>
             </div>
 
-            <h1 className="font-bold text-5xl pb-14">Meet Logan</h1>
-            <div className="text-2xl leading-relaxed">
+            <h1 className="font-bold text-2xl sm:text-5xl pb-14">Meet Logan</h1>
+            <div className="text-md sm:text-2xl leading-relaxed">
               <p>
               Chances are if you’re from Fairbanks you’ve probably met our head
               coach Logan Mowry. Logan loves fitness and the outdoors and wants

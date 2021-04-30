@@ -1,9 +1,6 @@
-import Header from '../components/Header.jsx'
-
 export default function Home() {
   return (
     <>
-      <Header/>
       <div className="my-12 mx-auto text-center w-2/5">
         <p className="pt-10 text-3xl leading-relaxed">
           <b>

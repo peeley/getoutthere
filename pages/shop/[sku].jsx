@@ -1,5 +1,4 @@
 import { promises as fs } from 'fs'
-import Header from '../../components/Header'
 import Image from 'next/image'
 import path from 'path'
 import { useState, useContext } from 'react'
@@ -18,7 +17,6 @@ export default function Product( props ) {
 
     return (
         <>
-            <Header />
             <div className="grid grid-cols-2 mt-20 mx-16 justify-items-center">
                 <div>
                     <Image src={props.imagePath} width="410" height="410"/>

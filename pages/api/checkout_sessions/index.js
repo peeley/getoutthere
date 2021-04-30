@@ -21,8 +21,6 @@ export default async function handler(req, res){
     }
 
     const checkoutSession = await stripe.checkout.sessions.create(params);
-
-    console.log('going to checkout!');
 }
 
 function formatAmountForStripe(amount, currency) {

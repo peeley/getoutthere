@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Context } from '../lib/State'
-import Header from '../components/Header'
 import { loadStripe } from '@stripe/stripe-js'
 
 export default function Cart() {
@@ -15,7 +14,7 @@ export default function Cart() {
             return(
                 <tr className="border-t" key={index}>
                     <td className="flex flex-row justify-start ml-5 items-center">
-                        <button className="hover:text-gray-900 hover:bg-gray-300 rounded text-gray-500 bg-gray-200 py-2 px-4 mx-5 my-10 align-middle" onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>X</button>
+                        <button className="hover:text-gray-900 hover:bg-gray-300 rounded text-gray-500 bg-gray-200 py-2 px-4 mx-5 my-10 align-middle" onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>&times;</button>
                       <Image src={product.imagePath} width="100" height="100"/>
                       <span className="ml-5 font-bold text-2xl flex-grow content-center">{product.title}</span>
                     </td>
@@ -75,7 +74,6 @@ export default function Cart() {
 
     return (
         <div>
-          <Header />
           <div className="mb-16 mt-20 mx-16">
             <h1 className="text-3xl font-bold mb-10">SHOPPING CART</h1>
             { cartItems }
