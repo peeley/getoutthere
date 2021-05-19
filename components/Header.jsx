@@ -21,7 +21,7 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" type="image/x-icon" href="https://assets.squarespace.com/universal/default-favicon.ico" />
             </Head>
-            <div className="flex flex-row justify-between m-16 text-md md:text-2xl">
+            <div className="hidden md:flex flex-row justify-between m-16 text-md md:text-2xl">
                 <div className="flex flex-row">
                     <h2 className="pr-3 md:pr-7">
                         <Link href="/shop">
@@ -45,7 +45,7 @@ export default function Header() {
                             </a>
                         </Link>
                     </div>
-                    <div class="flex row">
+                    <div className="flex row">
                         <Link href="/cart">
                             <a>
                                 <Image src="/cart-icon.svg" height="30" layout="fixed" width="30" />
@@ -53,6 +53,19 @@ export default function Header() {
                         </Link>
                         <span className="align-text-top text-base mt-5">{totalItems > 0 ? totalItems : null}</span>
                     </div>
+                </div>
+            </div>
+            <div className="flex flex-row justify-between md:hidden m-8">
+                <h1 className="text-2xl font-bold">
+                    <Link href="/"><a>Get Out There</a></Link>
+                </h1>
+                <div className="flex row">
+                    <Link href="/cart">
+                        <a>
+                            <Image src="/cart-icon.svg" height="30" layout="fixed" width="30" />
+                        </a>
+                    </Link>
+                    <span className="align-text-top text-base mt-5">{totalItems > 0 ? totalItems : null}</span>
                 </div>
             </div>
         </>

@@ -15,14 +15,16 @@ export default function Cart() {
         <tr className="border-t" key={index}>
           <td className="flex flex-row justify-start md:ml-5 items-center">
             <button className="hover:text-gray-900 hover:bg-gray-300 rounded text-gray-500 bg-gray-200 py-2 px-4 md:mx-5 my-10 align-middle" onClick={() => dispatch({ type: 'REMOVE_ITEM', index })}>&times;</button>
-            <Image src={product.imagePath} width="100" height="100" />
-            <span className="ml-5 font-bold text-2xl flex-grow content-center">{product.title}</span>
+            <div className="invisible md:visible">
+              <Image src={product.imagePath} layout="fixed" width="100" height="100" />
+            </div>
+            <span className="ml-5 font-bold text-lg md:text-2xl flex-grow content-center">{product.title}</span>
           </td>
           <td className="text-right">
             <input className="border w-1/6 text-center" min="1" type="number" value={product.quantity}
               onChange={(e) => dispatch({ type: 'CHANGE_QUANTITY', index, newQuantity: parseInt(e.target.value) })} />
           </td>
-          <td className="font-bold text-2xl text-center">${product.price.toFixed(2) * product.quantity}</td>
+          <td className="font-bold text-lg md:text-2xl text-center">${product.price.toFixed(2) * product.quantity}</td>
         </tr>
       );
     });
@@ -76,8 +78,8 @@ export default function Cart() {
 
   return (
     <div>
-      <div className="mb-16 mt-20 mx-16">
-        <h1 className="text-3xl font-bold mb-10">SHOPPING CART</h1>
+      <div className="mb-16 mt-20 mx-4 md:mx-16">
+        <h1 className="text-xl md:text-3xl font-bold mb-10">Shopping Cart</h1>
         {cartItems}
       </div>
     </div>
