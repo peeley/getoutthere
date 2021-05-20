@@ -1,12 +1,19 @@
 import Head from 'next/head';
 import Image from 'next/image'
 import Link from 'next/link'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Context } from '../lib/State'
 
 export default function Header() {
 
     const [cart,] = useContext(Context);
+
+    const [menuIsOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = (event) => {
+        event.preventDefault();
+        setMenuOpen(!menuIsOpen);
+    }
 
     let totalItems = 0;
     const getTotalCartItems = cart.forEach((item) => {
@@ -55,18 +62,47 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row justify-between md:hidden m-8">
-                <h1 className="text-2xl font-bold">
-                    <Link href="/"><a>Get Out There</a></Link>
-                </h1>
-                <div className="flex row">
-                    <Link href="/cart">
-                        <a>
-                            <Image src="/cart-icon.svg" height="30" layout="fixed" width="30" />
-                        </a>
-                    </Link>
-                    <span className="align-text-top text-base mt-5">{totalItems > 0 ? totalItems : null}</span>
+            <div className="md:hidden m-8">
+                <div className="flex flex-row justify-between">
+                    <div>
+                        <button onClick={toggleMenu}> {menuIsOpen ? <>&times;</> : <>&#9776;</>}</button>
+                    </div>
+                    <h1 className="text-2xl font-bold">
+                        <Link href="/"><a>Get Out There</a></Link>
+                    </h1>
+                    <div className="flex row">
+                        <Link href="/cart">
+                            <a>
+                                <Image src="/cart-icon.svg" height="30" layout="fixed" width="30" />
+                            </a>
+                        </Link>
+                        <span className="align-text-top text-base mt-5">{totalItems > 0 ? totalItems : null}</span>
+                    </div>
                 </div>
+                {menuIsOpen
+                    ? <div className="text-center border-1">
+                        <ul className="text-lg">
+                            <li className="mb-2">
+                                <Link href="/shop">
+                                    <a>Shop</a>
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="/our-story">
+                                    <a>Our Story</a>
+                                </Link>
+                            </li>
+                            <li className="mb-2">
+                                <Link href="https://www.instagram.com/getouthere907">
+                                    <a>
+                                        <Image className="content-center" src="/insta-logo.svg" layout="fixed" height="20" width="20" />
+                                    </a>
+                                </Link>
+                            </li>
+                        </ul>
+                        <hr />
+                    </div>
+                    : null}
             </div>
         </>
     );
