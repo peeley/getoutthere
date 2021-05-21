@@ -71,7 +71,7 @@ export default function Cart() {
       </table>
       <div className="my-10 text-right">
         <span className="block font-bold text-xl md:text-2xl">Subtotal: ${subtotal.toFixed(2)}</span>
-        <button className="text-lg md:text-xl font-bold bg-blue-600 text-white rounded-full my-5 p-3 md:p-5" onClick={submitToCheckout}>Checkout</button>
+        <button className="text-lg md:text-xl font-bold bg-blue-500 hover:bg-blue-600 hover:shadow-lg text-white rounded-full my-5 p-3 md:p-5" onClick={submitToCheckout}>Checkout</button>
       </div>
     </>
     : <p className="text-2xl font-bold">Your cart is empty. <Link href="/shop"><a className="underline">Start Shopping</a></Link></p>

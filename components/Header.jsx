@@ -16,7 +16,7 @@ export default function Header() {
     }
 
     let totalItems = 0;
-    const getTotalCartItems = cart.forEach((item) => {
+    cart.forEach((item) => {
         totalItems += item.quantity;
     });
 
@@ -28,14 +28,14 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" type="image/x-icon" href="https://assets.squarespace.com/universal/default-favicon.ico" />
             </Head>
-            <div className="hidden md:flex flex-row justify-between m-16 text-md md:text-2xl">
-                <div className="flex flex-row">
-                    <h2 className="pr-3 md:pr-7">
+            <div className="hidden md:flex flex-row items-end justify-between m-16 text-2xl">
+                <div className="flex flex-row hover:border">
+                    <h2 className="px-3 mr-7 text-gray-400 hover:text-black">
                         <Link href="/shop">
-                            <a>Shop</a>
+                            <a className=" rounded">Shop</a>
                         </Link>
                     </h2>
-                    <h2 className="pl-7">
+                    <h2 className="ml-7 text-gray-400 hover:text-black">
                         <Link href="/our-story">
                             <a>Our Story</a>
                         </Link>

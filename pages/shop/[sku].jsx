@@ -32,7 +32,7 @@ export default function Product(props) {
                             <p className="text-xl font-bold self-start mb-1">Quantity</p>
                             <input type="number" value={quantity} min="1" onChange={e => setQuantity(parseInt(e.target.value))} className="p-4 w-1/2 border" />
                         </div>
-                        <button className="text-xl font-bold bg-blue-600 text-white rounded-full mt-3 px-4 justify-self-start" onClick={() => addItem({ ...props, ...{ quantity } })}>
+                        <button className="text-xl font-bold bg-blue-500 hover:bg-blue-600 hover:shadow-lg text-white rounded-full mt-3 px-4 justify-self-start" onClick={() => addItem({ ...props, ...{ quantity } })}>
                             Add To Cart
                         </button>
                     </div>
