@@ -28,7 +28,7 @@ export default function Header() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="shortcut icon" type="image/x-icon" href="https://assets.squarespace.com/universal/default-favicon.ico" />
             </Head>
-            <div className="hidden md:flex flex-row justify-between m-16 text-md md:text-2xl">
+            <div className="hidden items-end md:flex flex-row justify-between m-16 text-md md:text-2xl">
                 <div className="flex flex-row">
                     <h2 className="pr-3 md:pr-7">
                         <Link href="/shop">
@@ -48,7 +48,7 @@ export default function Header() {
                     <div className="mr-7">
                         <Link href="https://www.instagram.com/getouthere907">
                             <a>
-                                <Image className="content-center" src="/insta-logo.svg" layout="fixed" height="25" width="25" />
+                                <Image src="/insta-logo.svg" layout="fixed" height="30" width="30" />
                             </a>
                         </Link>
                     </div>
