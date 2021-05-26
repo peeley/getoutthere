@@ -16,7 +16,7 @@ export default function Header() {
     }
 
     let totalItems = 0;
-    const getTotalCartItems = cart.forEach((item) => {
+    cart.forEach((item) => {
         totalItems += item.quantity;
     });
 
@@ -32,10 +32,10 @@ export default function Header() {
                 <div className="flex flex-row">
                     <h2 className="pr-3 md:pr-7">
                         <Link href="/shop">
-                            <a>Shop</a>
+                            <a className=" rounded">Shop</a>
                         </Link>
                     </h2>
-                    <h2 className="pl-7">
+                    <h2 className="ml-7 text-gray-400 hover:text-black">
                         <Link href="/our-story">
                             <a>Our Story</a>
                         </Link>
