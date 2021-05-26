@@ -17,16 +17,16 @@ export default function Product(props) {
 
     return (
         <>
-            <div className="grid grid-cols-2 mt-20 mx-16 justify-items-center">
+            <div className="md:grid md:grid-cols-2 mt-20 mx-8 md:mx-16 justify-items-center">
                 <div>
                     <Image src={props.imagePath} width="410" height="410" />
                 </div>
-                <div className="justify-self-start w-2/3">
+                <div className="justify-self-start md:w-2/3">
                     <div className="font-bold mb-10">
-                        <p className="mb-7 text-3xl">{props.title}</p>
-                        <p className="text-2xl">${props.price.toFixed(2)}</p>
+                        <p className="my-7 text-2xl md:text-3xl">{props.title}</p>
+                        <p className="text-xl md:text-2xl">${props.price.toFixed(2)}</p>
                     </div>
-                    <p className="leading-relaxed text-xl">{props.description}</p>
+                    <p className="leading-relaxed text-md md:text-xl">{props.description}</p>
                     <div className="my-5 py-5 grid grid-cols-2">
                         <div>
                             <p className="text-xl font-bold self-start mb-1">Quantity</p>
