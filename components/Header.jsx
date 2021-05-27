@@ -30,12 +30,12 @@ export default function Header() {
             </Head>
             <div className="hidden items-end md:flex flex-row justify-between m-16 text-md md:text-2xl">
                 <div className="flex flex-row">
-                    <h2 className="pr-3 md:pr-7">
+                    <h2 className="pr-3 hover:underline">
                         <Link href="/shop">
                             <a className=" rounded">Shop</a>
                         </Link>
                     </h2>
-                    <h2 className="ml-7 text-gray-400 hover:text-black">
+                    <h2 className="ml-7 hover:underline">
                         <Link href="/our-story">
                             <a>Our Story</a>
                         </Link>

@@ -18,10 +18,10 @@ export default function ShopIndex({ products }) {
 
     return (
         <>
-            <div className="mb-16 mt-20 mx-16">
+            <div className="mb-16 mt-20 mx-8 md:mx-16">
                 <h1 className="font-bold text-center text-2xl md:text-6xl md:mb-16 md:mt-20 md:mx-16">Shop</h1>
                 <hr />
-                <ul className="mt-16 grid grid-cols-2 gap-5 md:grid-cols-3">
+                <ul className="mt-16 grid gap-3 md:gap-5 grid-cols-3">
                     {productList}
                 </ul>
             </div>
